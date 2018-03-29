@@ -6,5 +6,5 @@ Datum: (25.03.18) Hiermit versichere ich, dass ich diesen Code selbst geschriebe
 function hallo() {
   var hey = prompt("Hey, wie ist dein Name?", "");
    var container = document.getElementById("Hallo_Name");
-    container.innerHTML ="Hey " + hey + ". Schön das du hier bist.";  
+    container.innerHTML = "Hey " + hey + ". Schön das du hier bist.";  
 }
