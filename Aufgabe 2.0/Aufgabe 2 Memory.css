@@ -12,11 +12,12 @@ Er wurde nicht kopiert und auch nicht diktiert. Dieser Code wurde in der Gruppen
 body {
   font-family: 'Hi Melody', cursive;
   font-size: 1,15em;
-  background: #feffff;
+  background: #d5d5d5;
 }
 h2 {
   text-align: center;
   margin-bottom: 1.25em;
+  color: #000000;
 }
 
 /* Spielinfo */
@@ -26,7 +27,7 @@ h2 {
   position: fixed;
   left: 0;
   top: 0;
-  background: #929292;
+  background: #f2f4f4;
   padding: 1.25em;
   box-sizing: border-box;
   box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
@@ -43,7 +44,7 @@ h2 {
 }
 #player-info .player-name {
   font-weight: bold;
-  color: #0080da;
+  color: #cae6ff;
 }
 
 /* Spielbrett */
@@ -75,7 +76,7 @@ h2 {
   text-align: center;
   line-height: 10.938em;
   position: relative;
-  background: #add3ff;
+  background: #cae6ff;
   transition: all 1s ease-in-out;
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
