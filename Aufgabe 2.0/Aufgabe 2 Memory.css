@@ -11,8 +11,8 @@ Er wurde nicht kopiert und auch nicht diktiert. Dieser Code wurde in der Gruppen
 }
 body {
   font-family: 'Hi Melody', cursive;
-  font-size: 1,15em;
-  background: #d5d5d5;
+  font-size: 1,19em;
+  background: #e2e2e2;
 }
 h2 {
   text-align: center;
@@ -36,15 +36,16 @@ h2 {
   margin-bottom: 3.125em;
 }
 #player-info div {
-  margin-bottom: 2.500em;
+  margin-bottom: 2.5em;
   text-align: center;
+  font-size: 1,19em;
 }
 #player-info div span {
   display: block;
 }
 #player-info .player-name {
   font-weight: bold;
-  color: #cae6ff;
+  color: #0080da;
 }
 
 /* Spielbrett */
@@ -56,7 +57,7 @@ h2 {
   margin-left: 20%;
 }
 #card-field h2 {
-  color: white;
+  color: #000000;
 }
 #card-div {
   position: relative;
