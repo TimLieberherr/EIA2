@@ -1,0 +1,113 @@
+/* Aufgabe: Aufgabe 2 Memory Stylesheet
+Name: Tim Lieberherr
+Matrikel: 257969
+Datum: 14.04.2018
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
+Er wurde nicht kopiert und auch nicht diktiert. Dieser Code wurde in der Gruppenarbeit mit Gruppe Grün erstellt, unter Anleitung von Melvin Busch */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Hi Melody', cursive;
+  font-size: 1,19em;
+  background: #e2e2e2;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 1.25em;
+  color: #000000;
+}
+
+/* Spielinfo */
+#player-info {
+  height: 100vh;
+  width: 22%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #f2f4f4;
+  padding: 1.25em;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
+}
+#player-info h2 {
+  margin-bottom: 3.125em;
+}
+#player-info div {
+  margin-bottom: 2.5em;
+  text-align: center;
+  font-size: 1,19em;
+}
+#player-info div span {
+  display: block;
+}
+#player-info .player-name {
+  font-weight: bold;
+  color: #0080da;
+}
+
+/* Spielbrett */
+#card-field {
+  height: auto;
+  max-width: 78%;
+  padding: 1.25em;
+  box-sizing: border-box;
+  margin-left: 20%;
+}
+#card-field h2 {
+  color: #000000;
+}
+#card-div {
+  position: relative;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  perspective: 1500;
+}
+.card {
+  height: 175px;
+  width: 175px;
+  border-radius: 5px;
+  margin: 0em 1.25em 1.25em 0em;
+  cursor: pointer;
+  text-align: center;
+  line-height: 10.938em;
+  position: relative;
+  background: #cae6ff;
+  transition: all 1s ease-in-out;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  pointer-events: auto;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #0080da;
+  border-radius: 0.313em;
+  transition: all 1s ease;
+  transform: rotateY(180deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  pointer-events: none;
+}
+.hidden {
+  transform: rotateY(180deg);
+}
+
+.hidden span {
+    display: none;
+}
+.taken {
+  transform: scale(0);
+}
+
+.taken span {
+    display: none;
