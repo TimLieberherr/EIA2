@@ -43,9 +43,9 @@ var Memory;
         cardField = document.getElementById("card-div");
         // Spielkarten erzeugen        
         for (var i = 0; i < numPairs; i++) {
-            createCard(cardContent[i], "open");
+            createCard(cardContent[i]);
             // cardContent an der Stelle i - wird als Übergabeparameter mitgegeben
-            createCard(cardContent[i], "");
+            createCard(cardContent[i]);
         }
         // Karten mischen
         randomMix(cardArray);
