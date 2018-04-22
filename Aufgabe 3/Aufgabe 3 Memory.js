@@ -43,9 +43,9 @@ var Memory;
         cardField = document.getElementById("card-div");
         // Spielkarten erzeugen        
         for (var i = 0; i < numPairs; i++) {
-            createCard(cardContent[i], randomState());
+            createCard(cardContent[i], "hidden");
             // cardContent an der Stelle i - wird als Übergabeparameter mitgegeben
-            createCard(cardContent[i], randomState());
+            createCard(cardContent[i], "hidden");
         }
         // Karten mischen
         randomMix(cardArray);
@@ -83,10 +83,6 @@ var Memory;
             childNodeHTML += "</p></div>";
             childNodeHTML += "</div>";
         }
-    }
-    // Zufallsgenerator als eigene funktion 
-    function randomState() {
-        return "hidden";
     }
     // Shuffle Arrays
     function randomMix(_array) {
@@ -161,20 +157,4 @@ var Memory;
         cardsTaken = [];
     }
 })(Memory || (Memory = {}));
-/**   // Zufallsgenerator als eigene funktion
-   function randomState(): string {
-       let randomState: number = Math.random();
-       // zufällige Zahl rein speichern, mit ganz vielen Kommastellen zwischen 0 und 1
-       if (randomState <= .5) {
-           // 50%ige Wahrscheinlichkeit, dass die Karte verdeckt ist
-           return "hidden";
-           // Status = hidden
-       } else if (randomState > .5 && randomState <= .75) {
-           // oder wenn: wenn Zahl größer als 0,5 und kleiner gleich 0,75 - dann Status: taken
-           return "taken";
-       } else if (randomState > .75) {
-           // oder wenn: Wenn Zahl größer als 0,75 - dann Status: visible
-           return "visible";
-       }
-   } **/
 //# sourceMappingURL=Aufgabe 3 Memory.js.map

@@ -58,9 +58,9 @@ namespace Memory {
 
         // Spielkarten erzeugen        
         for (let i: number = 0; i < numPairs; i++) {
-            createCard(cardContent[i], randomState());
+            createCard(cardContent[i], "hidden");
             // cardContent an der Stelle i - wird als Übergabeparameter mitgegeben
-            createCard(cardContent[i], randomState());
+            createCard(cardContent[i], "hidden");
             // cardContent an der Stelle i - wird als Übergabeparameter mitgegeben
         }
 
@@ -108,10 +108,7 @@ namespace Memory {
         }
     }
     
-        // Zufallsgenerator als eigene funktion 
-    function randomState(): string {
-            return "hidden";
-    }
+       
     
     // Shuffle Arrays
     function randomMix(_array: any[]): any[] {
@@ -197,20 +194,3 @@ namespace Memory {
 
 
 }
-
- /**   // Zufallsgenerator als eigene funktion 
-    function randomState(): string {
-        let randomState: number = Math.random();
-        // zufällige Zahl rein speichern, mit ganz vielen Kommastellen zwischen 0 und 1
-        if (randomState <= .5) {
-            // 50%ige Wahrscheinlichkeit, dass die Karte verdeckt ist
-            return "hidden";
-            // Status = hidden
-        } else if (randomState > .5 && randomState <= .75) {
-            // oder wenn: wenn Zahl größer als 0,5 und kleiner gleich 0,75 - dann Status: taken
-            return "taken";
-        } else if (randomState > .75) {
-            // oder wenn: Wenn Zahl größer als 0,75 - dann Status: visible
-            return "visible";
-        }
-    } **/
