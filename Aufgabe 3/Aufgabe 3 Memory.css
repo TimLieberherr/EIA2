@@ -83,18 +83,31 @@ h2 {
   -webkit-backface-visibility: hidden;
   pointer-events: auto;
 }
-
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #0080da;
+  border-radius: 0.313em;
+  transition: all 1s ease;
+  transform: rotateY(180deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  pointer-events: none;
+}
 .hidden {
   transform: rotateY(180deg);
 }
 
-/* .hidden div {
+.hidden div {
     display: none;
-} */
+}
 .taken {
   transform: scale(0);
 }
 
-/*.taken div {
+.taken div {
     display: none;
-} */
