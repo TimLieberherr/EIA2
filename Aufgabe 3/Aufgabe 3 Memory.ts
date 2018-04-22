@@ -106,7 +106,7 @@ namespace Memory {
        
     
     // Shuffle Arrays
-    function randomMix(_array: any[]): any[] {
+   function randomMix(_array: HTMLElement[]): HTMLElement[] {
         // _array = das Array, das durchmischt werden soll
         for (let i: number = _array.length - 1; i > 0; i--) {
             const j: number = Math.floor(Math.random() * (i + 1));
@@ -133,20 +133,20 @@ namespace Memory {
     }
 
      /** Klickbar machen Aufgabe 3**/
-    
+
     // Eventlistener auf cardField mit Verweis auf Funktion Clickhandler
     function clickHandler(_event: MouseEvent): void {
         // Gibt HTMLElement zurück, das Event ausgelöst hat
-        let cardClass: HTMLElement = <HTMLElement>_event.target;  
-         // classList = gibt den Klassen CSS Befehle mit              
-        if (cardClass.classList.contains("card")) {                            
-            openCards++;                                 
+        let cardClass: HTMLElement = <HTMLElement>_event.target;
+        // classList = gibt den Klassen CSS Befehle mit              
+        if (cardClass.classList.contains("card")) {
+            openCards++;
             // Wenn das Element den Klassen-Namen "hidden" hat, dann                          
-            if (cardClass.classList.contains("hidden")) { 
-            // wird der Klassen-Namen "hidden"  gelöscht                      
-                cardClass.classList.remove("hidden");  
-           // und Klassen-Namen wird auf "visible" gesetzt                         
-                cardClass.classList.add("visible");                             
+            if (cardClass.classList.contains("hidden")) {
+                // wird der Klassen-Namen "hidden"  gelöscht                      
+                cardClass.classList.remove("hidden");
+                // und Klassen-Namen wird auf "visible" gesetzt                         
+                cardClass.classList.add("visible");
             }
         }
         // Wenn zwei Karten offen daliegen, dann beginnt der Timout für 2000ms:
@@ -159,6 +159,11 @@ namespace Memory {
             cardClass.classList.remove("visible");
             cardClass.classList.add("hidden");
         }
+    }
+    
+         // gibt dem cardArray einen Filter mit, der nach der CSS-Klasse filtert, nach dem unser aufdecksystem funktioniert.
+    function filterCardsByClass(_filter: string): HTMLElement[] {
+        return cardArray.filter(card => card.classList.contains(_filter));     
     }
     
     // openArray, soll Funktion filterCardsByClass ausführen
@@ -188,10 +193,7 @@ namespace Memory {
         openCards = 0;                                                      
     }
 
-     // gibt dem cardArray einen Filter mit, der nach der CSS-Klasse filtert, nach dem unser aufdecksystem funktioniert.
-    function filterCardsByClass(_filter: string): HTMLElement[] {
-        return cardArray.filter(card => card.classList.contains(_filter));     
-    }
+
 
      // Wenn alle Karten "taken" sind, dann erscheint ein Pop Up Fenster "winnerAlert"
     function winnerAlert(): void {
@@ -205,14 +207,3 @@ namespace Memory {
 
 
 }
-
-/*     // Spieler soll Anzahl der Kartenpaare eingeben
-        numPairs = parseInt(prompt("Bitte die Anzahl der Kartenpaare eingeben", "5 - 10 Kartenpaare"), 10);
-        if (numPairs < 5 || numPairs > 10) {
-            numPairs = 8;
-        }
-
-        // Spieler sollen angeben, wie viele spielen wollen
-        numPlayers = parseInt(prompt("Bitte die Anzahl der Spieler eingeben", "nicht mehr als 4 Spieler"), 10);
-        numPlayers > 4 ? numPlayers = 4 : numPlayers = numPlayers;
-*/

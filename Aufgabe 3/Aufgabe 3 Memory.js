@@ -124,6 +124,10 @@ var Memory;
             cardClass.classList.add("hidden");
         }
     }
+    // gibt dem cardArray einen Filter mit, der nach der CSS-Klasse filtert, nach dem unser aufdecksystem funktioniert.
+    function filterCardsByClass(_filter) {
+        return cardArray.filter(function (card) { return card.classList.contains(_filter); });
+    }
     // openArray, soll Funktion filterCardsByClass ausführen
     function cardsCompare() {
         var openArray = filterCardsByClass("visible");
@@ -147,10 +151,6 @@ var Memory;
         // openCards auf 0 setzen da ja am Anfang alle Karten verdeckt sein sollen                                                  
         openCards = 0;
     }
-    // gibt dem cardArray einen Filter mit, der nach der CSS-Klasse filtert, nach dem unser aufdecksystem funktioniert.
-    function filterCardsByClass(_filter) {
-        return cardArray.filter(function (card) { return card.classList.contains(_filter); });
-    }
     // Wenn alle Karten "taken" sind, dann erscheint ein Pop Up Fenster "winnerAlert"
     function winnerAlert() {
         var cardsTaken = filterCardsByClass("hidden");
@@ -160,14 +160,4 @@ var Memory;
         cardsTaken = [];
     }
 })(Memory || (Memory = {}));
-/*     // Spieler soll Anzahl der Kartenpaare eingeben
-        numPairs = parseInt(prompt("Bitte die Anzahl der Kartenpaare eingeben", "5 - 10 Kartenpaare"), 10);
-        if (numPairs < 5 || numPairs > 10) {
-            numPairs = 8;
-        }
-
-        // Spieler sollen angeben, wie viele spielen wollen
-        numPlayers = parseInt(prompt("Bitte die Anzahl der Spieler eingeben", "nicht mehr als 4 Spieler"), 10);
-        numPlayers > 4 ? numPlayers = 4 : numPlayers = numPlayers;
-*/ 
 //# sourceMappingURL=Aufgabe 3 Memory.js.map
