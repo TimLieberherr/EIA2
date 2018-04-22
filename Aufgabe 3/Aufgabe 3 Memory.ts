@@ -40,27 +40,22 @@ namespace Memory {
     let openCards: number = 0;
 
     /** Funktionen**/
+    
     function main(): void {
         
-        // Spieler soll Anzahl der Kartenpaare eingeben
-        numPairs = parseInt(prompt("Bitte die Anzahl der Kartenpaare eingeben", "5 - 10 Kartenpaare"), 10);
-        if (numPairs < 5 || numPairs > 10) {
-            numPairs = 8;
-        }
-
-        // Spieler sollen angeben, wie viele spielen wollen
-        numPlayers = parseInt(prompt("Bitte die Anzahl der Spieler eingeben", "nicht mehr als 4 Spieler"), 10);
-        numPlayers > 4 ? numPlayers = 4 : numPlayers = numPlayers;
-
+        cardPairs();
+        numsPlayer();
+        showPlayerandScore();
+        
         // DOM abhängige Varaiblen deklarieren
         playerInfo = document.getElementById("player-info");
         cardField = document.getElementById("card-div");
 
         // Spielkarten erzeugen        
         for (let i: number = 0; i < numPairs; i++) {
-            createCard(cardContent[i],);
+            createCard(cardContent[i]);
             // cardContent an der Stelle i - wird als Übergabeparameter mitgegeben
-            createCard(cardContent[i],);
+            createCard(cardContent[i]);
             // cardContent an der Stelle i - wird als Übergabeparameter mitgegeben
         }
 
@@ -73,22 +68,22 @@ namespace Memory {
             // dem Spielbrett hinzufügen
         }
 
-        showPlayerandScore();
+
         cardField.addEventListener("click", clickHandler);
     }
 
 
     // Karte wird mit Text verknüpft
-    function createCard(textDerAufDieKarteSoll: string, _state: string): void {
+   function createCard(_textDerAufDieKarteSoll: string): void {
         let card: HTMLElement = document.createElement("div");
-        // div erzeugen
-        card.innerText = textDerAufDieKarteSoll;
-        // Text aus dem Array soll auf eine Karte
-        card.setAttribute("class", "card " + _state);
-        // Attribut hinzufügen: class = Welches Attribut (hier eine Klasse); card = zugehöriger Wert
+        card.innerHTML = `<div>${_textDerAufDieKarteSoll}</div>`;
+        // `` = string; $ = String + Variable + String (das heißt, man fügt den Wert einer Variable in einen String ein)
+        card.setAttribute("class", "card hidden");
+       
         cardArray.push(card);
-        // cardArray = Array vom Anfang; Speicher für alle erzeugten Karten
+        
     }
+
 
     // Spielinfo wird im HTML erzeugt
     function showPlayerandScore(): void {
@@ -121,6 +116,22 @@ namespace Memory {
         // Ausgabe = das Array ist jetzt durchmischt
     }
     
+     function cardPairs(): void {
+        numPairs = parseInt(prompt("Bitte die Anzahl der Kartenpaare festlegen", "5 - 10 Kartenpaare"), 10); // 10 = Dezimales Zahlensystem
+        if (numPairs < 5 || numPairs > 10) {
+            cardPairs();
+            
+        }
+    }
+
+    function numsPlayer(): void {
+        numPlayers = parseInt(prompt("Bitte die Anzahl der Spieler festlegen", "1 - 4 Spieler"), 10);
+        if (numPlayers > 4 || numPlayers < 1) {
+            numsPlayer();
+            
+        }
+    }
+
      /** Klickbar machen Aufgabe 3**/
     
     // Eventlistener auf cardField mit Verweis auf Funktion Clickhandler
@@ -194,3 +205,14 @@ namespace Memory {
 
 
 }
+
+/*     // Spieler soll Anzahl der Kartenpaare eingeben
+        numPairs = parseInt(prompt("Bitte die Anzahl der Kartenpaare eingeben", "5 - 10 Kartenpaare"), 10);
+        if (numPairs < 5 || numPairs > 10) {
+            numPairs = 8;
+        }
+
+        // Spieler sollen angeben, wie viele spielen wollen
+        numPlayers = parseInt(prompt("Bitte die Anzahl der Spieler eingeben", "nicht mehr als 4 Spieler"), 10);
+        numPlayers > 4 ? numPlayers = 4 : numPlayers = numPlayers;
+*/
