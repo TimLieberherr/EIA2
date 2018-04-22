@@ -41,6 +41,9 @@ namespace Memory {
 
     /** Funktionen**/
     function main(): void {
+        
+        cardPairs();
+        numPlayers();
 
         // Spieler soll Anzahl der Kartenpaare eingeben
         numPairs = parseInt(prompt("Bitte die Anzahl der Kartenpaare eingeben", "5 - 10 Kartenpaare"), 10);

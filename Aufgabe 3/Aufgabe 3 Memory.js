@@ -30,6 +30,8 @@ var Memory;
     var openCards = 0;
     /** Funktionen**/
     function main() {
+        cardPairs();
+        numPlayers();
         // Spieler soll Anzahl der Kartenpaare eingeben
         numPairs = parseInt(prompt("Bitte die Anzahl der Kartenpaare eingeben", "5 - 10 Kartenpaare"), 10);
         if (numPairs < 5 || numPairs > 10) {

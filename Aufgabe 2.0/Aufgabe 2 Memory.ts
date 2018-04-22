@@ -8,9 +8,13 @@ Er wurde nicht kopiert und auch nicht diktiert.
 Dieser Code wurde in der Gruppenarbeit mit Gruppe Grün erstellt unter Anleitung von Melvin Busch */
 
 namespace Memory {
+
     document.addEventListener("DOMContentLoaded", main);
 
-    // Variablen deklarieren
+    /** Variablen**/
+
+
+    // Karteninhalt, Memorybegriffe
     let cardContent: string[] = ["Katze", "Hund", "Löwe", "Kuh", "Pferd", "Elefant", "Affe", "Igel", "Otter", "Maus"];
 
     /* Noch mehr Tiere zur Erweiterung des Arrays: "Pinguin", "Jaguar", "Tintenfisch", "Papagei", "Fuchs", "Delfin", 
@@ -19,16 +23,23 @@ namespace Memory {
     let cardArray: HTMLElement[] = [];
     // leeres Array, in das die letztendlich für das Spiel benötigten Karten als divs hineingespeichert werden
 
+    //Arrays für die Paare und die Spielerzählung die vom User bestimmt wird 
     let numPairs: number;
     let numPlayers: number;
 
+    // Erzeugt im HTML das Spielfeld und die Punkteanzeige
     let playerInfo: HTMLElement;
     let cardField: HTMLElement;
 
-
+    // Zählt die Punkte
     let player: string[] = [];
     let score: number[] = [0, 0, 0, 0];
 
+    // Zwischenspeicher für Karteninhalt mit leerem Array
+    let openArray: string[] = [];
+    let openCards: number = 0;
+
+    /** Funktionen**/
     function main(): void {
 
         // Spieler soll Anzahl der Kartenpaare eingeben
@@ -63,12 +74,12 @@ namespace Memory {
             // dem Spielbrett hinzufügen
         }
 
-            
         showPlayerandScore();
-
+        cardField.addEventListener("click", clickHandler);
     }
 
 
+    // Karte wird mit Text verknüpft
     function createCard(textDerAufDieKarteSoll: string, _state: string): void {
         let card: HTMLElement = document.createElement("div");
         // div erzeugen
@@ -80,6 +91,7 @@ namespace Memory {
         // cardArray = Array vom Anfang; Speicher für alle erzeugten Karten
     }
 
+    // Spielinfo wird im HTML erzeugt
     function showPlayerandScore(): void {
         let childNodeHTML: string = "";
         childNodeHTML += "<div>";
@@ -108,7 +120,7 @@ namespace Memory {
         // Ausgabe = das Array ist jetzt durchmischt
     }
 
-    // Zufallsgenerator als eigene funktion = schöner & funktioniert besser :D
+    // Zufallsgenerator als eigene funktion 
     function randomState(): string {
         let randomState: number = Math.random();
         // zufällige Zahl rein speichern, mit ganz vielen Kommastellen zwischen 0 und 1
@@ -124,4 +136,78 @@ namespace Memory {
             return "visible";
         }
     }
+    
+     /** Klickbar machen Aufgabe 3**/
+    
+    // Eventlistener auf cardField mit Verweis auf Funktion Clickhandler
+    function clickHandler(_event: MouseEvent): void {
+        // Gibt HTMLElement zurück, das Event ausgelöst hat
+        let cardClass: HTMLElement = <HTMLElement>_event.target;  
+         // classList = gibt den Klassen CSS Befehle mit              
+        if (cardClass.classList.contains("card")) {                            
+            openCards++;                                 
+            // Wenn das Element den Klassen-Namen "hidden" hat, dann                          
+            if (cardClass.classList.contains("hidden")) { 
+            // wird der Klassen-Namen "hidden"  gelöscht                      
+                cardClass.classList.remove("hidden");  
+           // und Klassen-Namen wird auf "visible" gesetzt                         
+                cardClass.classList.add("visible");                             
+            }
+        }
+        // Wenn zwei Karten offen daliegen, dann beginnt der Timout für 2000ms:
+        if (openCards == 2) {                                                   
+            setTimeout(cardsCompare, 2000);                                    
+        }
+
+         // Nicht mehr als 2 Karten können "visible" sein
+        if (openCards > 2) {                                                   
+            cardClass.classList.remove("visible");
+            cardClass.classList.add("hidden");
+        }
+    }
+    
+    // openArray, soll Funktion filterCardsByClass ausführen
+    function cardsCompare(): void {
+        let openArray: HTMLElement[] = filterCardsByClass("visible");    
+        // wenn die Kinder an der Stelle [0] und [1] gleich sind, dann wird "visible" entfernt und durch "taken" ersetzt 
+        if (openArray[0].children[0].innerHTML == openArray[1].children[0].innerHTML) {   
+            for (let f: number = 0; f < openArray.length; f++) {
+                openArray[f].classList.remove("visible");                    
+                openArray[f].classList.add("taken");                         
+            }
+        }
+       
+         // Wenn die Kinder des Arrays nicht identisch sind, dann wird "visible" durch "hidden" ersetzt, nach dem Timeout
+        else {                                                               
+            for (let f: number = 0; f < openArray.length; f++) {
+                openArray[f].classList.remove("visible");                    
+                openArray[f].classList.add("hidden");                       
+            }
+        }
+        
+        // Funktionsaufruf von winnerAlert
+        winnerAlert(); 
+        // leeres openArray wird aufgerufen                                                   
+        openArray = [];  
+        // openCards auf 0 setzen da ja am Anfang alle Karten verdeckt sein sollen                                                  
+        openCards = 0;                                                      
+    }
+
+     // gibt dem cardArray einen Filter mit, der nach der CSS-Klasse filtert, nach dem unser aufdecksystem funktioniert.
+    function filterCardsByClass(_filter: string): HTMLElement[] {
+        return cardArray.filter(card => card.classList.contains(_filter));     
+    }
+
+     // Wenn alle Karten "taken" sind, dann erscheint ein Pop Up Fenster "winnerAlert"
+    function winnerAlert(): void {
+        let cardsTaken: HTMLElement[] = filterCardsByClass("hidden");
+        if (cardsTaken.length == 0) {                                       
+            alert("Gratulation du hast Gewonnen");
+            
+        }
+        cardsTaken = [];
+    }
+
+
 }
+

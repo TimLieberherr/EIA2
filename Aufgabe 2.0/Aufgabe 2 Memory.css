@@ -101,6 +101,13 @@ h2 {
 .hidden {
   transform: rotateY(180deg);
 }
+
+.hidden span {
+    display: none;
+}
 .taken {
   transform: scale(0);
 }
+
+.taken span {
+    display: none;
