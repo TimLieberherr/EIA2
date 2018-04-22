@@ -41,11 +41,11 @@ var Memory;
         // DOM abhängige Varaiblen deklarieren
         playerInfo = document.getElementById("player-info");
         cardField = document.getElementById("card-div");
-        // Spielkarten erzeugen
+        // Spielkarten erzeugen        
         for (var i = 0; i < numPairs; i++) {
-            createCard(cardContent[i], randomState());
-            // word an der Stelle i - wird als Übergabeparameter mitgegeben
-            createCard(cardContent[i], randomState());
+            createCard(cardContent[i]);
+            // cardContent an der Stelle i - wird als Übergabeparameter mitgegeben
+            createCard(cardContent[i]);
         }
         // Karten mischen
         randomMix(cardArray);
@@ -94,23 +94,6 @@ var Memory;
         return _array;
         var _a;
         // Ausgabe = das Array ist jetzt durchmischt
-    }
-    // Zufallsgenerator als eigene funktion 
-    function randomState() {
-        var randomState = Math.random();
-        // zufällige Zahl rein speichern, mit ganz vielen Kommastellen zwischen 0 und 1
-        if (randomState <= .5) {
-            // 50%ige Wahrscheinlichkeit, dass die Karte verdeckt ist
-            return "hidden";
-        }
-        else if (randomState > .5 && randomState <= .75) {
-            // oder wenn: wenn Zahl größer als 0,5 und kleiner gleich 0,75 - dann Status: taken
-            return "taken";
-        }
-        else if (randomState > .75) {
-            // oder wenn: Wenn Zahl größer als 0,75 - dann Status: visible
-            return "visible";
-        }
     }
     /** Klickbar machen Aufgabe 3**/
     // Eventlistener auf cardField mit Verweis auf Funktion Clickhandler
@@ -174,4 +157,20 @@ var Memory;
         cardsTaken = [];
     }
 })(Memory || (Memory = {}));
+/**   // Zufallsgenerator als eigene funktion
+   function randomState(): string {
+       let randomState: number = Math.random();
+       // zufällige Zahl rein speichern, mit ganz vielen Kommastellen zwischen 0 und 1
+       if (randomState <= .5) {
+           // 50%ige Wahrscheinlichkeit, dass die Karte verdeckt ist
+           return "hidden";
+           // Status = hidden
+       } else if (randomState > .5 && randomState <= .75) {
+           // oder wenn: wenn Zahl größer als 0,5 und kleiner gleich 0,75 - dann Status: taken
+           return "taken";
+       } else if (randomState > .75) {
+           // oder wenn: Wenn Zahl größer als 0,75 - dann Status: visible
+           return "visible";
+       }
+   } **/
 //# sourceMappingURL=Aufgabe 3 Memory.js.map
