@@ -1,11 +1,10 @@
-/* Aufgabe: Aufgabe 2 Memory
+/* Aufgabe: Aufgabe 3 Memory
 Name: Tim Lieberherr
 Matrikel: 257969
-Datum: 14.04.2018
+Datum: 21.04.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
 Er wurde nicht kopiert und auch nicht diktiert. 
-
-Dieser Code wurde in der Gruppenarbeit mit Gruppe Grün erstellt unter Anleitung von Melvin Busch */
+*/
 
 namespace Memory {
 
@@ -75,6 +74,7 @@ namespace Memory {
         }
 
         showPlayerandScore();
+        
         cardField.addEventListener("click", clickHandler);
     }
 
