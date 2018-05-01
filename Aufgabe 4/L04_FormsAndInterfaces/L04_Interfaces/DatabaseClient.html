@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>DatabaseClient</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="DatabaseClient.css" type="text/css" media="screen"/>
+<script src="Interfaces.js" type="text/javascript" charset="utf-8"></script>
+<script src="ProcessForm.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<fieldset id="search">
+	 <input id="searchInput" type="number" pattern="[0-9]{6}" placeholder="Suche Matrikelnummer" name="searchInput">
+	 <button type="button" id="search">Suchen</button>
+	 <textarea rows="10" cols="90"> </textarea>
+	</fieldset>
+	<fieldset id="input">
+		<legend> Type student data here </legend>
+		<input type="text" name="name" placeholder="Nachname"/>
+		<input type="text" name="firstname" placeholder="Vorname"/>
+		<input type="text" name="matrikel" placeholder="Matrikelnummer"/>
+		<input type="number" name="age" placeholder="Alter" min="1" max="100"/>
+		<select name="Select" id="select">
+			<option value="option1">OMB</option>
+			<option value="option2">MKB</option>
+			<option value="option3">MIB</option>
+			</select>
+		<input type="radio" name="gender" value="male" id="male"/>
+		<label for="male">Mann</label>
+		<input type="radio" name="gender" value="female" id="female"/>
+		<label for="female">Frau</label>
+		<button type="button" id="insert">Einfügen in Datenbank</button>
+	</fieldset>
+	<fieldset id="output">
+		<legend> All student data </legend>
+		<button type="button" id="refresh">Neu Laden</button>
+		<textarea rows="20" cols="90"> </textarea>
+	</fieldset>
+
+</body>
+</html>
