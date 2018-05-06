@@ -3,6 +3,7 @@ namespace L04_Interfaces {
     export interface Studi {
         name: string;
         firstname: string;
+        studyPath: string;
         matrikel: number;
         age: number;
         gender: boolean;

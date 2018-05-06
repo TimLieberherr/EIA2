@@ -5,40 +5,45 @@ namespace L04_Interfaces {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
-        let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("search"); 
+        let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("searchbutton");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
         searchButton.addEventListener("click", search);
     }
-    function search (_event: Event): void {
-        let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
-        let search: HTMLInputElement = <HTMLInputElement>document.getElementById("searchInput");
+    function search(_event: Event): void {
+        let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
+        let matrikel: number = parseInt((<HTMLInputElement>document.getElementById("searchInput")).value);
         output.value = "";
 
         for (let matrikel in studiHomoAssoc) {
             let studi: Studi = studiHomoAssoc[matrikel];
-            let line: string = matrikel + ": ";
-
-            if (search.value == studi.matrikel.toString()) {
-                line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre alt ";
-                line += studi.gender ? "(M)" : "(F)";
+            if (studi == undefined)
+                output.value += "Kein Suchergebnis gefunden";
+            // nicht gefunden
+            // return;
+            else {
+                let line: string = matrikel + ": ";
+                line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre, ";
+                line += studi.studyPath + ", ";
+                line += studi.gender ? "männlich" : "weiblich";
                 output.value += line + "\n";
-
-            } else {
-                let info: string = "kein Student mit dieser Nummer gefunden";
-                output.value += info + "\n";
             }
         }
+        // gefunden: gib den studenten aus steht in der let studi
+        // student: studi.name, studi.age,           
     }
-        
+
     function insert(_event: Event): void {
         let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
         let genderButton: HTMLInputElement = <HTMLInputElement>document.getElementById("male");
+        let studyPath: HTMLSelectElement = <HTMLSelectElement>document.getElementById("select");
         let matrikel: string = inputs[2].value;
+        console.log(inputs);
         let studi: Studi;
         studi = {
             name: inputs[0].value,
             firstname: inputs[1].value,
+            studyPath: studyPath.value,
             matrikel: parseInt(matrikel),
             age: parseInt(inputs[3].value),
             gender: genderButton.checked
@@ -56,10 +61,9 @@ namespace L04_Interfaces {
     }
 
     function refresh(_event: Event): void {
-        let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
+        let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
         output.value = "";
-        // for-in-Schleife iteriert über die Schlüssel des assoziativen Arrays
-        for (let matrikel in studiHomoAssoc) {  // Besonderheit: Type-Annotation nicht erlaubt, ergibt sich aus der Interface-Definition
+        for (let matrikel in studiHomoAssoc) {
             let studi: Studi = studiHomoAssoc[matrikel];
             let line: string = matrikel + ": ";
             line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre ";

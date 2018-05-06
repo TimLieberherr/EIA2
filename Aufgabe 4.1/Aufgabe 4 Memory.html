@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+
+<!-- Aufgabe: Aufgabe 4 Memory Stylesheet
+Name: Tim Lieberherr
+Matrikel: 257969
+Datum: 14.04.2018
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
+Er wurde nicht kopiert und auch nicht diktiert. Dieser Code wurde in der Gruppenarbeit mit Gruppe Grün erstellt, unter Anleitung von Melvin Busch-->
+
+<head>
+<meta charset="utf-8">
+<title>Aufgabe 4 Memory</title>
+<script type="text/javascript"  src="Aufgabe 4 Memory.js"></script>
+<script type="text/javascript" src="Aufgabe4_Interface.js"></script>
+<link rel="stylesheet" href="Aufgabe 4 Memory.css">
+<link href="https://fonts.googleapis.com/css?family=Hi+Melody" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
+
+
+</head>
+<body>
+  <div id="interface">
+    <h3>Bitte Spielername eingeben</h3>
+
+    <div id="placemiddle">
+    <div id="names">
+      <input type="text" placeholder="Name eingeben" name="player" maxlength="15" />
+    </div>
+    <button id="addplayer" class="buttonplayer">+</button>
+    <button id="removeplayer" class="buttonplayer">-</button>
+    </div>
+
+    <h3>Kartendeck wählen</h3>
+    <select id="counterinfo" name="carddeck" onchange="createCounter()">
+      <option disabled selected>Kartendeck wählen</option>
+      <option value="animals">Tier Memory</option>
+      <option value="fruits">Frucht Memory</option>
+      <option value="bands">Musik Memory</option>
+    </select>
+
+    <h3>Anzahl Kartenpaare wählen</h3>
+    <div id="counterbox"></div>
+    <button class="StartButton" id="start">Start</button>
+  </div>
+
+  <section id="player-info">
+      <h2>Spielinfo</h2>
+  </section>
+
+  <section id="card-field">
+      <h2>Spielbrett</h2>
+      <div id="card-div"></div>
+  </section>
+
+</body>
+
+</html>
+
