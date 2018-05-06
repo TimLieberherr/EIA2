@@ -10,7 +10,7 @@ Dieser Code wurde in der Gruppenarbeit mit Gruppe Grün erstellt */
 namespace Memory {
     window.addEventListener("load", main);
     document.addEventListener("DOMContentLoaded", main);
-
+    
     /** Variablen erzeugen**/
     
     // Leeres Array für die Divs
@@ -29,7 +29,9 @@ namespace Memory {
 
     let playerCounter: number = 1;
     let playerScore: number = 0;
-     
+
+
+ 
 /** Funktionen**/
     
     function main(): void {
@@ -61,7 +63,7 @@ namespace Memory {
         if (counterMenge == 1) {
             let counter: HTMLElement = document.createElement("input");
             counter.setAttribute("type", "number");
-            counter.setAttribute("value", "5");
+            counter.setAttribute("value", "6");
             counter.setAttribute("min", "5");
             counter.setAttribute("max", decks[document.getElementsByTagName("select").item(0).value].cardBatch);
             counter.setAttribute("step", "1");

@@ -50,7 +50,7 @@ var Memory;
         if (counterMenge == 1) {
             var counter = document.createElement("input");
             counter.setAttribute("type", "number");
-            counter.setAttribute("value", "5");
+            counter.setAttribute("value", "6");
             counter.setAttribute("min", "5");
             counter.setAttribute("max", decks[document.getElementsByTagName("select").item(0).value].cardBatch);
             counter.setAttribute("step", "1");

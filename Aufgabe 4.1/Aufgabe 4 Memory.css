@@ -25,10 +25,10 @@ h2 {
   display: block;
     background-color: white;
     border: none;
-    padding: 2em;
+    padding: 4em;
     width: 50%;
     margin: auto;
-    margin-top: 2em;
+    margin-top: 6em;
 }
 
 #interface h3 {
@@ -38,13 +38,14 @@ h2 {
 }
 
 #interface button {
-  margin-top: 1.5em;
+font-size: 1em;
+  margin-top: 2.5em;
   border-radius: 5px;
   background-color: #cae6ff;
   border: none;
   color: #000000;
   cursor: pointer;
-  padding: 10px 20px 10px 20px;
+  padding: 1em 3em 1em 3em;
   font-weight: bold;
 }
 
@@ -79,7 +80,7 @@ div #names {
   margin: auto;
     margin-top: 2em;
     font-family: 'Pangolin', cursive;
-    padding: 0.5em;
+    padding: 1em;
     width: 14em;
 }
 
