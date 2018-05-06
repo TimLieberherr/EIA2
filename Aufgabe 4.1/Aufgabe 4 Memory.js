@@ -36,7 +36,7 @@ var Memory;
             player.setAttribute("type", "text");
             player.setAttribute("placeholder", "Spielernamen eingeben");
             player.setAttribute("name", "player");
-            player.setAttribute("maxlength", "15");
+            player.setAttribute("maxlength", "10");
             player.setAttribute("id", "player");
             document.getElementById("names").appendChild(player);
             playerCounter++;
@@ -126,7 +126,6 @@ var Memory;
             }
         }
         winnerAlert();
-        // Funktionsaufruf von congratAlert
         openArray = [];
         openCards = 0;
     }
