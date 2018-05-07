@@ -6,8 +6,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 Er wurde nicht kopiert und auch nicht diktiert.
 
 Dieser Code wurde in der Gruppenarbeit mit Gruppe Grün erstellt */
-var Memory;
-(function (Memory) {
+var Aufgabe4;
+(function (Aufgabe4) {
     window.addEventListener("load", main);
     document.addEventListener("DOMContentLoaded", main);
     /** Variablen erzeugen**/
@@ -52,7 +52,7 @@ var Memory;
             counter.setAttribute("type", "number");
             counter.setAttribute("value", "6");
             counter.setAttribute("min", "5");
-            counter.setAttribute("max", decks[document.getElementsByTagName("select").item(0).value].cardBatch);
+            counter.setAttribute("max", Aufgabe4.decks[document.getElementsByTagName("select").item(0).value].cardBatch);
             counter.setAttribute("step", "1");
             counter.setAttribute("id", "counter");
             document.getElementById("counterbox").appendChild(counter);
@@ -162,8 +162,8 @@ var Memory;
         }
         //Karten erzeugen
         for (var i = 0; i < numPairs; i++) {
-            createCard(decks[document.getElementsByTagName("select").item(0).value].cardContent[i]);
-            createCard(decks[document.getElementsByTagName("select").item(0).value].cardContent[i]);
+            createCard(Aufgabe4.decks[document.getElementsByTagName("select").item(0).value].cardContent[i]);
+            createCard(Aufgabe4.decks[document.getElementsByTagName("select").item(0).value].cardContent[i]);
         }
         //Aufruf des Shuffle Algorithmus
         randomMix(cardArray);
@@ -171,5 +171,5 @@ var Memory;
             document.getElementById("card-div").appendChild(cardArray[i]);
         }
     }
-})(Memory || (Memory = {}));
+})(Aufgabe4 || (Aufgabe4 = {}));
 //# sourceMappingURL=Aufgabe 4 Memory.js.map

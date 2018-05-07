@@ -7,7 +7,7 @@ Er wurde nicht kopiert und auch nicht diktiert.
 
 Dieser Code wurde in der Gruppenarbeit mit Gruppe Grün erstellt */
 
-namespace Memory {
+ namespace Aufgabe4 {
     window.addEventListener("load", main);
     document.addEventListener("DOMContentLoaded", main);
     
