@@ -12,17 +12,17 @@ var Aufgabe4;
     document.addEventListener("DOMContentLoaded", main);
     /** Variablen erzeugen**/
     // Leeres Array für die Divs
-    var cardArray = [];
+    let cardArray = [];
     // Zwischenspeicher für Karteninhalt mit leerem Array
-    var openCards = 0;
-    var openArray = [];
+    let openCards = 0;
+    let openArray = [];
     // Erzeugt im HTML das Spielfeld und die Punkteanzeige
-    var playerInfo;
-    var cardField;
-    var checkContent = [];
-    var counterMenge = 1;
-    var playerCounter = 1;
-    var playerScore = 0;
+    let playerInfo;
+    let cardField;
+    let checkContent = [];
+    let counterMenge = 1;
+    let playerCounter = 1;
+    let playerScore = 0;
     /** Funktionen**/
     function main() {
         document.getElementById("start").addEventListener("click", start);
@@ -32,7 +32,7 @@ var Aufgabe4;
     }
     function addPlayer() {
         if (playerCounter < 6) {
-            var player = document.createElement("input");
+            let player = document.createElement("input");
             player.setAttribute("type", "text");
             player.setAttribute("placeholder", "Spielernamen eingeben");
             player.setAttribute("name", "player");
@@ -48,7 +48,7 @@ var Aufgabe4;
     }
     function createCounter() {
         if (counterMenge == 1) {
-            var counter = document.createElement("input");
+            let counter = document.createElement("input");
             counter.setAttribute("type", "number");
             counter.setAttribute("value", "6");
             counter.setAttribute("min", "5");
@@ -69,7 +69,7 @@ var Aufgabe4;
     }
     //Karte initialisieren
     function createCard(_cardContent) {
-        var card = document.createElement("div");
+        let card = document.createElement("div");
         // div erzeugen
         card.innerHTML = "<p>" + _cardContent + "</p>";
         // Text aus dem Array soll auf eine Karte
@@ -83,7 +83,7 @@ var Aufgabe4;
     }
     function clickHandler(_event) {
         //Event-Handler
-        var cardClass = _event.target;
+        let cardClass = _event.target;
         // Gibt das HTMLElement zurück, das den Event ausgelöst hat
         if (cardClass.classList.contains("card")) {
             // classList = gibt den Klassen Namen eines Elements zurück, es können CSS Klassen hinzugefügt und zurückgesetzt werden (w3Schools)
@@ -111,7 +111,7 @@ var Aufgabe4;
     function cardsCompare() {
         if (openArray[0].innerHTML == openArray[1].innerHTML) {
             // wenn die beiden Karten im openArray identisch sind, dann:
-            for (var i = 0; i < 2; i++) {
+            for (let i = 0; i < 2; i++) {
                 // Status "visible" wird zu "taken"
                 openArray[i].classList.remove("visible");
                 openArray[i].classList.add("taken");
@@ -120,7 +120,7 @@ var Aufgabe4;
         }
         else {
             // Ansonsten wird der Status von "visible" auf "hidden" geÃ¤ndert
-            for (var i = 0; i < openArray.length; i++) {
+            for (let i = 0; i < openArray.length; i++) {
                 openArray[i].classList.remove("visible");
                 openArray[i].classList.add("hidden");
             }
@@ -137,12 +137,11 @@ var Aufgabe4;
     }
     // Shuffle-Array
     function randomMix(_array) {
-        for (var i = _array.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            _a = [_array[j], _array[i]], _array[i] = _a[0], _array[j] = _a[1];
+        for (let i = _array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [_array[i], _array[j]] = [_array[j], _array[i]];
         }
         return _array;
-        var _a;
     }
     // Funktion zum Anzeigen der Spielerinfo und des Memories
     function start() {
@@ -152,22 +151,22 @@ var Aufgabe4;
         playerInfo = document.getElementById("player-info");
         cardField = document.getElementById("card-div");
         cardField.addEventListener("click", clickHandler);
-        var inputs = document.getElementsByTagName("input");
-        var numPairs = parseInt(document.getElementById("counter").value);
+        let inputs = document.getElementsByTagName("input");
+        let numPairs = parseInt(document.getElementById("counter").value);
         // Spieler Anzeige generieren
-        for (var i = 0; i < playerCounter; i++) {
-            var playerDiv = document.createElement("div");
+        for (let i = 0; i < playerCounter; i++) {
+            let playerDiv = document.createElement("div");
             document.getElementById("player-info").appendChild(playerDiv);
             playerDiv.innerHTML = inputs[i].value + ": " + playerScore + " Punkte";
         }
         //Karten erzeugen
-        for (var i = 0; i < numPairs; i++) {
+        for (let i = 0; i < numPairs; i++) {
             createCard(Aufgabe4.decks[document.getElementsByTagName("select").item(0).value].cardContent[i]);
             createCard(Aufgabe4.decks[document.getElementsByTagName("select").item(0).value].cardContent[i]);
         }
         //Aufruf des Shuffle Algorithmus
         randomMix(cardArray);
-        for (var i = 0; i < cardArray.length; i++) {
+        for (let i = 0; i < cardArray.length; i++) {
             document.getElementById("card-div").appendChild(cardArray[i]);
         }
     }

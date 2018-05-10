@@ -10,23 +10,23 @@ var Memory;
     document.addEventListener("DOMContentLoaded", main);
     /** Variablen**/
     // Karteninhalt, Memorybegriffe
-    var cardContent = ["Katze", "Hund", "Löwe", "Kuh", "Pferd", "Elefant", "Affe", "Igel", "Otter", "Maus"];
+    let cardContent = ["Katze", "Hund", "Löwe", "Kuh", "Pferd", "Elefant", "Affe", "Igel", "Otter", "Maus"];
     /* Noch mehr Tiere zur Erweiterung des Arrays: "Pinguin", "Jaguar", "Tintenfisch", "Papagei", "Fuchs", "Delfin",
       "Giraffe", "Schwein", "Maus", "Nashorn", "Tiger", "Schmetterling", "Eule", "Adler", "Krokodil", "Ziege", "Schlange" */
-    var cardArray = [];
+    let cardArray = [];
     // leeres Array, in das die letztendlich für das Spiel benötigten Karten als divs hineingespeichert werden
     //Arrays für die Paare und die Spielerzählung die vom User bestimmt wird 
-    var numPairs;
-    var numPlayers;
+    let numPairs;
+    let numPlayers;
     // Erzeugt im HTML das Spielfeld und die Punkteanzeige
-    var playerInfo;
-    var cardField;
+    let playerInfo;
+    let cardField;
     // Zählt die Punkte
-    var player = [];
-    var score = [0, 0, 0, 0];
+    let player = [];
+    let score = [0, 0, 0, 0];
     // Zwischenspeicher für Karteninhalt mit leerem Array
-    var openArray = [];
-    var openCards = 0;
+    let openArray = [];
+    let openCards = 0;
     /** Funktionen**/
     function main() {
         // Spieler soll Anzahl der Kartenpaare eingeben
@@ -41,7 +41,7 @@ var Memory;
         playerInfo = document.getElementById("player-info");
         cardField = document.getElementById("card-div");
         // Spielkarten erzeugen
-        for (var i = 0; i < numPairs; i++) {
+        for (let i = 0; i < numPairs; i++) {
             createCard(cardContent[i], randomState());
             // word an der Stelle i - wird als Übergabeparameter mitgegeben
             createCard(cardContent[i], randomState());
@@ -49,7 +49,7 @@ var Memory;
         // Karten mischen
         randomMix(cardArray);
         // Karten dem Spielbrett hinzufügen
-        for (var i = 0; i < cardArray.length; i++) {
+        for (let i = 0; i < cardArray.length; i++) {
             cardField.appendChild(cardArray[i]);
         }
         showPlayerandScore();
@@ -57,7 +57,7 @@ var Memory;
     }
     // Karte wird mit Text verknüpft
     function createCard(textDerAufDieKarteSoll, _state) {
-        var card = document.createElement("div");
+        let card = document.createElement("div");
         // div erzeugen
         card.innerText = textDerAufDieKarteSoll;
         // Text aus dem Array soll auf eine Karte
@@ -68,9 +68,9 @@ var Memory;
     }
     // Spielinfo wird im HTML erzeugt
     function showPlayerandScore() {
-        var childNodeHTML = "";
+        let childNodeHTML = "";
         childNodeHTML += "<div>";
-        for (var i = 0; i < player.length; i++) {
+        for (let i = 0; i < player.length; i++) {
             childNodeHTML += "<div id=player-info";
             childNodeHTML += i;
             childNodeHTML += ">";
@@ -86,17 +86,16 @@ var Memory;
     // Shuffle Arrays
     function randomMix(_array) {
         // _array = das Array, das durchmischt werden soll
-        for (var i = _array.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            _a = [_array[j], _array[i]], _array[i] = _a[0], _array[j] = _a[1];
+        for (let i = _array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [_array[i], _array[j]] = [_array[j], _array[i]];
         }
         return _array;
-        var _a;
         // Ausgabe = das Array ist jetzt durchmischt
     }
     // Zufallsgenerator als eigene funktion 
     function randomState() {
-        var randomState = Math.random();
+        let randomState = Math.random();
         // zufällige Zahl rein speichern, mit ganz vielen Kommastellen zwischen 0 und 1
         if (randomState <= .5) {
             // 50%ige Wahrscheinlichkeit, dass die Karte verdeckt ist
@@ -115,7 +114,7 @@ var Memory;
     // Eventlistener auf cardField mit Verweis auf Funktion Clickhandler
     function clickHandler(_event) {
         // Gibt HTMLElement zurück, das Event ausgelöst hat
-        var cardClass = _event.target;
+        let cardClass = _event.target;
         // classList = gibt den Klassen CSS Befehle mit              
         if (cardClass.classList.contains("card")) {
             openCards++;
@@ -139,16 +138,16 @@ var Memory;
     }
     // openArray, soll Funktion filterCardsByClass ausführen
     function cardsCompare() {
-        var openArray = filterCardsByClass("visible");
+        let openArray = filterCardsByClass("visible");
         // wenn die Kinder an der Stelle [0] und [1] gleich sind, dann wird "visible" entfernt und durch "taken" ersetzt 
         if (openArray[0].children[0].innerHTML == openArray[1].children[0].innerHTML) {
-            for (var f = 0; f < openArray.length; f++) {
+            for (let f = 0; f < openArray.length; f++) {
                 openArray[f].classList.remove("visible");
                 openArray[f].classList.add("taken");
             }
         }
         else {
-            for (var f = 0; f < openArray.length; f++) {
+            for (let f = 0; f < openArray.length; f++) {
                 openArray[f].classList.remove("visible");
                 openArray[f].classList.add("hidden");
             }
@@ -162,11 +161,11 @@ var Memory;
     }
     // gibt dem cardArray einen Filter mit, der nach der CSS-Klasse filtert, nach dem unser aufdecksystem funktioniert.
     function filterCardsByClass(_filter) {
-        return cardArray.filter(function (card) { return card.classList.contains(_filter); });
+        return cardArray.filter(card => card.classList.contains(_filter));
     }
     // Wenn alle Karten "taken" sind, dann erscheint ein Pop Up Fenster "winnerAlert"
     function winnerAlert() {
-        var cardsTaken = filterCardsByClass("hidden");
+        let cardsTaken = filterCardsByClass("hidden");
         if (cardsTaken.length == 0) {
             alert("Gratulation du hast Gewonnen");
         }
