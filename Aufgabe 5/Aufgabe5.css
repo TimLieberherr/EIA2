@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Hi Melody', cursive;
+  font-size: 1,19em;
+  background: white;
+  text-align: center;
+  font-color:#565556 
+}
+h1 {
+  text-align: center;
+  margin-bottom: 1.5em;
+  color: #377dd4;
+}
+h3 {
+  text-align: center;
+  margin-bottom: 1em;
+  color: #377dd4;
+}
+
+h4 {
+  text-align: center;
+  color: #565556;
+}
