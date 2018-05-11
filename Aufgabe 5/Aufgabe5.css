@@ -6,21 +6,21 @@ body {
   font-family: 'Hi Melody', cursive;
   font-size: 1,19em;
   background: white;
-  text-align: center;
+   text-align: auto;
   font-color:#565556 
 }
 h1 {
-  text-align: center;
   margin-bottom: 1.5em;
   color: #377dd4;
+  font-size: 2,5em;
 }
 h3 {
-  text-align: center;
   margin-bottom: 1em;
   color: #377dd4;
+  font-size: 1,8em;
 }
 
 h4 {
-  text-align: center;
   color: #565556;
+  font-size: 1,19em;
 }
