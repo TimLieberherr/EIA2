@@ -1,0 +1,1 @@
+{"version":3,"file":"SuperClass.js","sourceRoot":"","sources":["SuperClass.ts"],"names":[],"mappings":"AAAA,IAAU,aAAa,CAqBtB;AArBD,WAAU,aAAa,EAAC,CAAC;IACrB;QAII;YACI,kBAAkB;QACtB,CAAC;QAED,IAAI;YACA,kBAAkB;QACtB,CAAC;QAED,IAAI;YACA,kBAAkB;QACtB,CAAC;QAED,aAAa;YACT,MAAM;QACV,CAAC;IACL,CAAC;IAnBY,wBAAU,aAmBtB,CAAA;AACL,CAAC,EArBS,aAAa,KAAb,aAAa,QAqBtB,CAAA,oBAAoB"}
