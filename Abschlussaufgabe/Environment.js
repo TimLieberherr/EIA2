@@ -1,7 +1,14 @@
+/*  Aufgabe: Abschlussaufgabe - Drunken Sailor
+    Name: Tim Lieberherr
+    Matrikel: 257969
+    Datum: 31.07.18
+    
+    Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var DrunkenSailor;
 (function (DrunkenSailor) {
+    // Enviroment Funktion - Aufrufen Floor & Background
     function environment() {
-        floor();
+        waves();
         background();
         hill_1(75, 550);
         hill_2(160, 550);
@@ -9,11 +16,12 @@ var DrunkenSailor;
         hill_2(830, 550);
         hill_1(715, 550);
     }
-    DrunkenSailor.environment = environment;
-    function floor() {
+    DrunkenSailor.environment = environment; // Enviroment
+    // Waves Function
+    function waves() {
         let gradient = DrunkenSailor.crc2.createLinearGradient(350, 550, 350, 700);
-        gradient.addColorStop(0, "#999999");
-        gradient.addColorStop(1, "#383838");
+        gradient.addColorStop(0, "#81DAF5");
+        gradient.addColorStop(1, "#0489B1");
         DrunkenSailor.crc2.fillStyle = gradient;
         DrunkenSailor.crc2.beginPath();
         DrunkenSailor.crc2.moveTo(0, 550);
@@ -24,11 +32,12 @@ var DrunkenSailor;
         DrunkenSailor.crc2.fill();
         DrunkenSailor.crc2.strokeStyle = "transparent";
         DrunkenSailor.crc2.stroke();
-    }
+    } // Waves
+    // Background Function
     function background() {
         let gradient = DrunkenSailor.crc2.createLinearGradient(350, 0, 350, 550);
-        gradient.addColorStop(0, "#247d87");
-        gradient.addColorStop(1, "#c3d8db");
+        gradient.addColorStop(0, "#FDFDE5");
+        gradient.addColorStop(1, "#BFF4FD");
         DrunkenSailor.crc2.fillStyle = gradient;
         DrunkenSailor.crc2.beginPath();
         DrunkenSailor.crc2.moveTo(0, 0);
@@ -40,10 +49,10 @@ var DrunkenSailor;
         DrunkenSailor.crc2.fill();
         DrunkenSailor.crc2.strokeStyle = "transparent";
         DrunkenSailor.crc2.stroke();
-    }
+    } // Background 
+    // Hill Funktion
     function hill_1(_x, _y) {
         DrunkenSailor.crc2.fillStyle = "rgb(4, 123, 140, 0.7)";
-        // x=75 und y=550
         DrunkenSailor.crc2.beginPath();
         DrunkenSailor.crc2.moveTo(_x, _y);
         DrunkenSailor.crc2.lineTo(_x, _y - 150);
@@ -54,7 +63,8 @@ var DrunkenSailor;
         DrunkenSailor.crc2.fill();
         DrunkenSailor.crc2.strokeStyle = "transparent";
         DrunkenSailor.crc2.stroke();
-    }
+    } // Hill
+    // Hill 2 Funktion
     function hill_2(_x, _y) {
         DrunkenSailor.crc2.fillStyle = "rgb(63, 106, 112, 0.7)";
         DrunkenSailor.crc2.beginPath();
@@ -67,6 +77,6 @@ var DrunkenSailor;
         DrunkenSailor.crc2.fill();
         DrunkenSailor.crc2.strokeStyle = "transparent";
         DrunkenSailor.crc2.stroke();
-    }
-})(DrunkenSailor || (DrunkenSailor = {})); // closing namespace
+    } // Hill 2
+})(DrunkenSailor || (DrunkenSailor = {})); // namespace
 //# sourceMappingURL=Environment.js.map

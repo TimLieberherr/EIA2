@@ -6,31 +6,41 @@
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var DrunkenSailor;
 (function (DrunkenSailor) {
-    window.addEventListener("load", init);
+    window.addEventListener("load", start);
     DrunkenSailor.superclass = [];
     DrunkenSailor.enemies = [];
     let imgData;
+    // start Funktion
+    function start(_event) {
+        let button = document.getElementById("startButton");
+        button.addEventListener("click", init);
+        document.getElementById("drunkenSailor").style.display = "none";
+        document.getElementById("startscreen").style.display = "initial";
+    }
+    // init Funktion
     function init(_event) {
         DrunkenSailor.canvas = document.getElementsByTagName("canvas")[0];
         DrunkenSailor.crc2 = DrunkenSailor.canvas.getContext("2d");
         DrunkenSailor.canvas.addEventListener("click", shoot);
-        // Hintergrund des Spiels
+        // ruft Hintergrund auf
         DrunkenSailor.environment();
-        // Hintergrund in einer Variablen speichern
+        //  speichert den Hintergrund in einer Variabel
         imgData = DrunkenSailor.crc2.getImageData(0, 0, DrunkenSailor.canvas.width, DrunkenSailor.canvas.height);
-        // Dot in das Array "superclass" pushen  
-        //        let dot: Dot = new Dot();
-        //        superclass.push(dot);
         // Aufruf der animate-Funktion
         animate();
+        // Aufruf der Ship-Funktion  HIER NOCH VARIABEL AUSTAUSCHEN
         let triangle = new DrunkenSailor.Triangle();
         DrunkenSailor.enemies.push(triangle);
+        // Aufruf der Other-Funktion 
         let other = new DrunkenSailor.OtherStuff();
         DrunkenSailor.enemies.push(other);
-        let dot = new DrunkenSailor.Dot(); //Zu Schiff umändern
+        // Aufruf der ownShip-Funktion  HIER NOCH VARIABEL AUSTAUSCHEN
+        let dot = new DrunkenSailor.Dot();
         DrunkenSailor.superclass.push(dot);
-    } // init
+    }
+    DrunkenSailor.init = init; // init
     function createObjects() {
+        // Math Random für Ship- & Other-Funktion  HIER NOCH VARIABEL AUSTAUSCHEN
         let c = Math.floor(Math.random() * 2);
         switch (c) {
             case 0:
@@ -43,7 +53,7 @@ var DrunkenSailor;
                 break;
         }
     }
-    DrunkenSailor.createObjects = createObjects;
+    DrunkenSailor.createObjects = createObjects; // createObjects
     // Animate-Funktion
     function animate() {
         window.setTimeout(animate, 15);
@@ -52,11 +62,11 @@ var DrunkenSailor;
         drawObjects();
         moveObjects();
     }
-    //Schießen Kugel
+    // Shoot Funktion 
     function shoot() {
         DrunkenSailor.bullet = new DrunkenSailor.Bullet();
         DrunkenSailor.superclass.push(DrunkenSailor.bullet);
-    }
+    } //shoot
     // DrawObjects-Funktion
     function drawObjects() {
         for (let i = 0; i < DrunkenSailor.superclass.length; i++) {
@@ -65,7 +75,7 @@ var DrunkenSailor;
         for (let i = 0; i < DrunkenSailor.enemies.length; i++) {
             DrunkenSailor.enemies[i].draw();
         }
-    }
+    } // DrawObjects
     // MoveObjects-Funktion
     function moveObjects() {
         for (let i = 0; i < DrunkenSailor.superclass.length; i++) {
@@ -75,6 +85,6 @@ var DrunkenSailor;
         for (let i = 0; i < DrunkenSailor.enemies.length; i++) {
             DrunkenSailor.enemies[i].move();
         }
-    }
-})(DrunkenSailor || (DrunkenSailor = {})); // closing namespace
+    } // Moving Objects
+})(DrunkenSailor || (DrunkenSailor = {})); // namespace
 //# sourceMappingURL=Abschlussaufgabe.js.map

@@ -1,14 +1,30 @@
+/*  Aufgabe: Abschlussaufgabe - Drunken Sailor
+    Name: Tim Lieberherr
+    Matrikel: 257969
+    Datum: 31.07.18
+    
+    Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
+
+
+
 namespace DrunkenSailor {
+    
+    // Triangle Klasse
     export class Triangle extends Square {
         color: string;
 
+        
+        // constructor
         constructor() {
             super();
             this.setRandomColor();
             this.setStartPosition();
             this.setRandomSpawnPoint();
-        }
+        } // constructor
 
+        
+        
+        // draw
         draw(): void {
             crc2.fillStyle = this.color;
             crc2.beginPath();
@@ -20,18 +36,25 @@ namespace DrunkenSailor {
 
             crc2.strokeStyle = "transparent";
             crc2.stroke();
-        }
+        } // draw
 
+        
+        
+        // setStartPosition
         setStartPosition(): void {
             this.x = canvas.width + 50;
             this.y = 560;
-        }
+        }// setStartPosition
 
+        
+        
+        // setRandwomSpawnPoint
         setRandomSpawnPoint(): void {
-//            this.x = Math.random() * ((crc2.canvas.width + 700) - (crc2.canvas.width + 50)) + (crc2.canvas.width + 50);
-//            this.y = 560;
-        }
+        // leer
+        } // setRandwomSpawnPoint
 
+        
+        // setRandwomColor
         setRandomColor(): void {
             let c: number = Math.floor(Math.random() * 3);
             switch (c) {
@@ -46,4 +69,4 @@ namespace DrunkenSailor {
             } // switch   
         } // setRandomColor
     } // class   
-} // closing namespace 
+} // namespace 

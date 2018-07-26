@@ -6,14 +6,15 @@
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var DrunkenSailor;
 (function (DrunkenSailor) {
+    // DOT ÄNDERN
     class Dot extends DrunkenSailor.SuperClass {
+        // Constructor Dots
         constructor() {
             super();
             this.radius = 30;
             this.setStartPosition();
-            //            this.x = newPositionX;
-            //            this.y = newPositionY;
-        }
+        } // Constructor
+        // CheckPosition Window Alert
         checkPosition() {
             for (let i = 0; i < DrunkenSailor.enemies.length; i++) {
                 if (125 == DrunkenSailor.enemies[i].x) {
@@ -21,7 +22,8 @@ var DrunkenSailor;
                     console.log("gameOver");
                 }
             }
-        }
+        } // CheckPosition
+        // SetStartPosition
         setStartPosition() {
             this.x = 125;
             this.y = 550;

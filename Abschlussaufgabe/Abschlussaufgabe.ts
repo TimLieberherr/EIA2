@@ -6,9 +6,10 @@
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 
 
+
 namespace DrunkenSailor {
 
-    window.addEventListener("load", init);
+    window.addEventListener("load", start);
 
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
@@ -17,34 +18,48 @@ namespace DrunkenSailor {
     let imgData: ImageData;
     export let bullet: Bullet;
 
-    function init(_event: Event): void {
+    // start Funktion
+    function start(_event: Event): void {
+        let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("startButton");
+        button.addEventListener("click", init);
+        document.getElementById("drunkenSailor").style.display = "none";
+        document.getElementById("startscreen").style.display = "initial";
+    }
+
+    // init Funktion
+    export function init(_event: Event): void {
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
         canvas.addEventListener("click", shoot);
-        // Hintergrund des Spiels
+
+        // ruft Hintergrund auf
         environment();
 
-        // Hintergrund in einer Variablen speichern
+        //  speichert den Hintergrund in einer Variabel
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
-        // Dot in das Array "superclass" pushen  
-        //        let dot: Dot = new Dot();
-        //        superclass.push(dot);
         // Aufruf der animate-Funktion
         animate();
 
+        // Aufruf der Ship-Funktion  HIER NOCH VARIABEL AUSTAUSCHEN
         let triangle: Triangle = new Triangle();
         enemies.push(triangle);
+
+        // Aufruf der Other-Funktion 
         let other: OtherStuff = new OtherStuff();
         enemies.push(other);
 
-        let dot: Dot = new Dot(/*newPositionX, newPositionY*/); //Zu Schiff umändern
+        // Aufruf der ownShip-Funktion  HIER NOCH VARIABEL AUSTAUSCHEN
+        let dot: Dot = new Dot();
         superclass.push(dot);
 
     } // init
 
+
+
     export function createObjects(): void {
 
+        // Math Random für Ship- & Other-Funktion  HIER NOCH VARIABEL AUSTAUSCHEN
         let c: number = Math.floor(Math.random() * 2);
         switch (c) {
             case 0:
@@ -59,10 +74,7 @@ namespace DrunkenSailor {
         }
 
 
-    }
-
-
-
+    } // createObjects
 
 
 
@@ -77,11 +89,13 @@ namespace DrunkenSailor {
         moveObjects();
     }
 
-    //Schießen Kugel
+    // Shoot Funktion 
     function shoot(): void {
         bullet = new Bullet();
         superclass.push(bullet);
-    }
+    } //shoot
+
+
 
     // DrawObjects-Funktion
     function drawObjects(): void {
@@ -91,7 +105,9 @@ namespace DrunkenSailor {
         for (let i: number = 0; i < enemies.length; i++) {
             enemies[i].draw();
         }
-    }
+    }  // DrawObjects
+
+
 
     // MoveObjects-Funktion
     function moveObjects(): void {
@@ -102,20 +118,7 @@ namespace DrunkenSailor {
         for (let i: number = 0; i < enemies.length; i++) {
             enemies[i].move();
         }
+    } // Moving Objects
 
 
-
-    }
-
-    //    function dot(_x: number, _y: number): void {
-    //        crc2.fillStyle = "rgb(55, 60, 61)";
-    //
-    //        crc2.beginPath();
-    //        crc2.arc(_x, _y, 27, 0, 2 * Math.PI, true);
-    //        crc2.closePath();
-    //        crc2.fill();
-    //
-    //        crc2.strokeStyle = "transparent";
-    //        crc2.stroke();
-    //    }
-} // closing namespace
+} // namespace

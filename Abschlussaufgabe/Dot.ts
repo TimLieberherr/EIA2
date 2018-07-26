@@ -5,18 +5,26 @@
     
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 
+
+
 namespace DrunkenSailor {
+    
+    // DOT ÄNDERN
     export class Dot extends SuperClass {
         
         radius: number = 30;
         
-        constructor(/*newPositionX: number, newPositionY: number*/) {
+        
+        
+        // Constructor Dots
+        constructor() {
             super();  
             this.setStartPosition(); 
-//            this.x = newPositionX;
-//            this.y = newPositionY;
-        }
+        }  // Constructor
         
+        
+        
+         // CheckPosition Window Alert
         checkPosition(): void {
             for (let i: number = 0; i < enemies.length; i++) {
                 if (125 == enemies[i].x) {
@@ -25,8 +33,11 @@ namespace DrunkenSailor {
                 }
 
             }
-        }
+        }  // CheckPosition
         
+        
+        
+        // SetStartPosition
         setStartPosition(): void {
             this.x = 125;
             this.y = 550;
