@@ -20,7 +20,8 @@ body {
 
 #startButton {
 	font-family: 'Pirata One', cursive;
-	border-radius: 5px;
+	font-size: 2em;
+	border-radius: 10px;
 	background-color: #6487a2;
 	border: none;
 	color: white;
