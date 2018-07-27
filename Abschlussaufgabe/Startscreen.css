@@ -5,11 +5,17 @@
 body {
 	font-family: 'Pirata One', cursive;
 	color: white;
-	background-color: #5cb5d6;
+	background-color: #ffd478;
 	text-align: center;
+	font-size: 1.5em;
+	
 }
 
-#startscreen {
+h1 {
+	font-size: 4em;
+}
+
+#startScreen {
 	color: white;
 	margin-top: 20px;
 	padding: 10px 20px 10px 20px;
