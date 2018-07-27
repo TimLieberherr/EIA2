@@ -23,11 +23,14 @@ namespace DrunkenSailor {
         let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("startButton");
         button.addEventListener("click", init);
         document.getElementById("drunkenSailor").style.display = "none";
-        document.getElementById("startscreen").style.display = "initial";
+        document.getElementById("startScreen").style.display = "initial";
     }
 
     // init Funktion
     export function init(_event: Event): void {
+        document.getElementById("startScreen").style.display = "none";
+        document.getElementById("drunkenSailor").style.display = "initial";
+
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
         canvas.addEventListener("click", shoot);

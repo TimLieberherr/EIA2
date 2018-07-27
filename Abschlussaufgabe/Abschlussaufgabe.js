@@ -15,10 +15,12 @@ var DrunkenSailor;
         let button = document.getElementById("startButton");
         button.addEventListener("click", init);
         document.getElementById("drunkenSailor").style.display = "none";
-        document.getElementById("startscreen").style.display = "initial";
+        document.getElementById("startScreen").style.display = "initial";
     }
     // init Funktion
     function init(_event) {
+        document.getElementById("startScreen").style.display = "none";
+        document.getElementById("drunkenSailor").style.display = "initial";
         DrunkenSailor.canvas = document.getElementsByTagName("canvas")[0];
         DrunkenSailor.crc2 = DrunkenSailor.canvas.getContext("2d");
         DrunkenSailor.canvas.addEventListener("click", shoot);
