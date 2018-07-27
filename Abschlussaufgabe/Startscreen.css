@@ -1,13 +1,12 @@
 @charset "UTF-8";
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
-
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Pirata+One');
 
 body {
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Pirata One', cursive;
 	color: white;
 	background-color: #5cb5d6;
+	text-align: center;
 }
 
 #startscreen {
@@ -20,6 +19,7 @@ body {
 }
 
 #startButton {
+	font-family: 'Pirata One', cursive;
 	border-radius: 5px;
 	background-color: #6487a2;
 	border: none;

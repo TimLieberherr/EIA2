@@ -63,7 +63,7 @@ namespace DrunkenSailor {
             crc2.fillStyle = "#4c4c4c";
 
             crc2.beginPath();
-            crc2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, true);
+            crc2.arc(this.x, this.y, this.radius, 0, 1 * Math.PI, true);
             crc2.closePath();
             crc2.fill();
 

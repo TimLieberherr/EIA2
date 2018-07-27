@@ -63,4 +63,4 @@ namespace DrunkenSailor {
             this.y -= 0;
         } 
     }
-} // closing namespace
+} //namespace

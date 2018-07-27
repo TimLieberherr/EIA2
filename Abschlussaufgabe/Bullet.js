@@ -40,7 +40,7 @@ var DrunkenSailor;
         draw() {
             DrunkenSailor.crc2.fillStyle = "#4c4c4c";
             DrunkenSailor.crc2.beginPath();
-            DrunkenSailor.crc2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, true);
+            DrunkenSailor.crc2.arc(this.x, this.y, this.radius, 0, 1 * Math.PI, true);
             DrunkenSailor.crc2.closePath();
             DrunkenSailor.crc2.fill();
             DrunkenSailor.crc2.strokeStyle = "#4c4c4c";

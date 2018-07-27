@@ -43,5 +43,5 @@ var DrunkenSailor;
         }
     }
     DrunkenSailor.Dot = Dot;
-})(DrunkenSailor || (DrunkenSailor = {})); // closing namespace
+})(DrunkenSailor || (DrunkenSailor = {})); //namespace
 //# sourceMappingURL=Dot.js.map
