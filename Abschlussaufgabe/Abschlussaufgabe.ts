@@ -52,7 +52,7 @@ namespace DrunkenSailor {
         let other: OtherStuff = new OtherStuff();
         enemies.push(other);
 
-        // Aufruf der ownShip-Funktion  HIER NOCH VARIABEL AUSTAUSCHEN
+        // Aufruf der Boat-Funktion  
         let dot: Boat = new Boat();
         superclass.push(dot);
 

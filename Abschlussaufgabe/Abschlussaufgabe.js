@@ -36,7 +36,7 @@ var DrunkenSailor;
         // Aufruf der Other-Funktion 
         let other = new DrunkenSailor.OtherStuff();
         DrunkenSailor.enemies.push(other);
-        // Aufruf der ownShip-Funktion  HIER NOCH VARIABEL AUSTAUSCHEN
+        // Aufruf der Boat-Funktion  
         let dot = new DrunkenSailor.Boat();
         DrunkenSailor.superclass.push(dot);
     }

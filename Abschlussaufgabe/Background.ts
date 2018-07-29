@@ -70,7 +70,7 @@ namespace DrunkenSailor {
 
         crc2.beginPath();
         crc2.moveTo(_x + 170, _y + + 80);
-        crc2.bezierCurveTo(_x + 120, _y + 90, _x + 120, _y + 140, _x + 220, _y + 140);
+        crc2.bezierCurveTo(_x + 120, _y + 90, _x + 120, _y + 1408, _x + 220, _y + 140);
         crc2.bezierCurveTo(_x + 250, _y + 180, _x + 320, _y + 180, _x + 330, _y + 140);
         crc2.bezierCurveTo(_x + 420, _y + 150, _x + 420, _y + 120, _x + 390, _y + 90);
         crc2.bezierCurveTo(_x + 430, _y + 40, _x + 370, _y + 30, _x + 340, _y + 40);
