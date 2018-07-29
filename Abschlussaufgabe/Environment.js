@@ -6,15 +6,14 @@
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var DrunkenSailor;
 (function (DrunkenSailor) {
-    // Enviroment Funktion - Aufrufen Floor & Background
+    // Enviroment Function - Aufrufen Floor & Background
     function environment() {
         waves();
         background();
-        hill_1(75, 550);
-        hill_2(160, 550);
-        hill_2(630, 550);
-        hill_2(830, 550);
-        hill_1(715, 550);
+        cloud(-300, 110);
+        cloud(25, -10);
+        cloud(380, 90);
+        cloud(700, 20);
     }
     DrunkenSailor.environment = environment; // Enviroment
     // Waves Function
@@ -50,33 +49,21 @@ var DrunkenSailor;
         DrunkenSailor.crc2.strokeStyle = "transparent";
         DrunkenSailor.crc2.stroke();
     } // Background 
-    // Hill Funktion
-    function hill_1(_x, _y) {
-        DrunkenSailor.crc2.fillStyle = "rgb(4, 123, 140, 0.7)";
+    // Cloud Function 
+    function cloud(_x, _y) {
         DrunkenSailor.crc2.beginPath();
-        DrunkenSailor.crc2.moveTo(_x, _y);
-        DrunkenSailor.crc2.lineTo(_x, _y - 150);
-        DrunkenSailor.crc2.quadraticCurveTo(_x + 5, _y - 200, _x + 50, _y - 200);
-        DrunkenSailor.crc2.quadraticCurveTo(_x + 95, _y - 200, _x + 100, _y - 150);
-        DrunkenSailor.crc2.lineTo(_x + 100, _y);
+        DrunkenSailor.crc2.moveTo(_x + 170, _y + +80);
+        DrunkenSailor.crc2.bezierCurveTo(_x + 120, _y + 90, _x + 120, _y + 140, _x + 220, _y + 140);
+        DrunkenSailor.crc2.bezierCurveTo(_x + 250, _y + 180, _x + 320, _y + 180, _x + 330, _y + 140);
+        DrunkenSailor.crc2.bezierCurveTo(_x + 420, _y + 150, _x + 420, _y + 120, _x + 390, _y + 90);
+        DrunkenSailor.crc2.bezierCurveTo(_x + 430, _y + 40, _x + 370, _y + 30, _x + 340, _y + 40);
+        DrunkenSailor.crc2.bezierCurveTo(_x + 320, _y + 5, _x + 250, _y + 20, _x + 250, _y + 40);
+        DrunkenSailor.crc2.bezierCurveTo(_x + 200, _y + 5, _x + 150, _y + 20, _x + 170, _y + 70);
         DrunkenSailor.crc2.closePath();
+        DrunkenSailor.crc2.fillStyle = "#07C2EC";
         DrunkenSailor.crc2.fill();
         DrunkenSailor.crc2.strokeStyle = "transparent";
         DrunkenSailor.crc2.stroke();
-    } // Hill
-    // Hill 2 Funktion
-    function hill_2(_x, _y) {
-        DrunkenSailor.crc2.fillStyle = "rgb(63, 106, 112, 0.7)";
-        DrunkenSailor.crc2.beginPath();
-        DrunkenSailor.crc2.moveTo(_x, _y);
-        DrunkenSailor.crc2.lineTo(_x, _y - 100);
-        DrunkenSailor.crc2.quadraticCurveTo(_x + 5, _y - 150, _x + 50, _y - 150);
-        DrunkenSailor.crc2.quadraticCurveTo(_x + 95, _y - 150, _x + 100, _y - 100);
-        DrunkenSailor.crc2.lineTo(_x + 100, _y);
-        DrunkenSailor.crc2.closePath();
-        DrunkenSailor.crc2.fill();
-        DrunkenSailor.crc2.strokeStyle = "transparent";
-        DrunkenSailor.crc2.stroke();
-    } // Hill 2
+    }
 })(DrunkenSailor || (DrunkenSailor = {})); // namespace
 //# sourceMappingURL=Environment.js.map

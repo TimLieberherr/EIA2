@@ -30,23 +30,23 @@ var DrunkenSailor;
         imgData = DrunkenSailor.crc2.getImageData(0, 0, DrunkenSailor.canvas.width, DrunkenSailor.canvas.height);
         // Aufruf der animate-Funktion
         animate();
-        // Aufruf der Ship-Funktion  HIER NOCH VARIABEL AUSTAUSCHEN
-        let triangle = new DrunkenSailor.Triangle();
+        // Aufruf der Enemy-Funktion
+        let triangle = new DrunkenSailor.Enemy1();
         DrunkenSailor.enemies.push(triangle);
         // Aufruf der Other-Funktion 
         let other = new DrunkenSailor.OtherStuff();
         DrunkenSailor.enemies.push(other);
         // Aufruf der ownShip-Funktion  HIER NOCH VARIABEL AUSTAUSCHEN
-        let dot = new DrunkenSailor.Dot();
+        let dot = new DrunkenSailor.Boat();
         DrunkenSailor.superclass.push(dot);
     }
     DrunkenSailor.init = init; // init
     function createObjects() {
-        // Math Random für Ship- & Other-Funktion  HIER NOCH VARIABEL AUSTAUSCHEN
-        let c = Math.floor(Math.random() * 2);
+        // Enemy- & Other-Funktion 
+        let c = Math.floor(Math.random() * 3);
         switch (c) {
             case 0:
-                let triangle = new DrunkenSailor.Triangle();
+                let triangle = new DrunkenSailor.Enemy1();
                 DrunkenSailor.enemies.push(triangle);
                 break;
             case 1:
@@ -58,7 +58,7 @@ var DrunkenSailor;
     DrunkenSailor.createObjects = createObjects; // createObjects
     // Animate-Funktion
     function animate() {
-        window.setTimeout(animate, 15);
+        window.setTimeout(animate, 20);
         DrunkenSailor.crc2.clearRect(0, 0, DrunkenSailor.crc2.canvas.width, DrunkenSailor.crc2.canvas.height);
         DrunkenSailor.crc2.putImageData(imgData, 0, 0);
         drawObjects();

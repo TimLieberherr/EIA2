@@ -13,7 +13,7 @@ var DrunkenSailor;
             this.x = 125;
             this.y = 550;
         } //Constructor 
-        // checkPosition Bullet - Zerstört Kugel außerhalb der Bullet.
+        // checkPosition Bullet - Zerstört Kugel außerhalb des Canvas.
         checkPosition() {
             if (this.x >= DrunkenSailor.canvas.width) {
                 this.destroyBullet();
@@ -21,7 +21,6 @@ var DrunkenSailor;
             for (let i = 0; i < DrunkenSailor.enemies.length; i++) {
                 if (this.x >= DrunkenSailor.enemies[i].x) {
                     if (this.y <= DrunkenSailor.enemies[i].y + 10 && this.y >= DrunkenSailor.enemies[i].y - 10) {
-                        //wenn der Gegener getroffen ist
                         let index = i;
                         DrunkenSailor.enemies.splice(index, 1);
                         window.setTimeout(DrunkenSailor.createObjects, 300);

@@ -11,7 +11,7 @@ namespace DrunkenSailor {
     
     
      // Square Klasse
-    export class OtherStuff extends Square {
+    export class OtherStuff extends EnemyClass {
         color: string;
 
         
@@ -26,17 +26,39 @@ namespace DrunkenSailor {
         
         
          // draw  
-        draw(): void {
-            crc2.fillStyle = this.color;
+  draw(): void {
             crc2.beginPath();
-            crc2.moveTo(this.x, this.y);
-            crc2.lineTo(this.x + 28, this.y - 50);
-            crc2.lineTo(this.x + 56, this.y);
+            //Rumpf
+            crc2.moveTo(this.x + 30, this.y - 43);
+            crc2.lineTo(this.x + 30, this.y + 10);
+            crc2.lineTo(this.x - 80, this.y + 10);
+            crc2.lineTo(this.x - 120, this.y - 30);
+            //Spitze
+            crc2.lineTo(this.x - 145, this.y - 30);
+            crc2.lineTo(this.x - 145, this.y - 32);
+            //Höcker
+            crc2.lineTo(this.x - 10, this.y - 32);
+            crc2.lineTo(this.x + 10, this.y - 43);
+            //Mast 1
+            crc2.moveTo(this.x - 30, this.y - 32);
+            crc2.lineTo(this.x - 30, this.y - 140);
+            crc2.lineTo(this.x - 28, this.y - 140);
+            crc2.lineTo(this.x - 28, this.y - 32);
+            //Segel 1
+            crc2.moveTo(this.x - 29, this.y - 60);
+            crc2.lineTo(this.x + 10, this.y - 60);
+            crc2.lineTo(this.x - 29, this.y - 140);
+            //Mast 1
+            crc2.moveTo(this.x - 70, this.y - 32);
+            crc2.lineTo(this.x - 30, this.y - 140);
+            crc2.lineTo(this.x - 28, this.y - 140);
+            crc2.lineTo(this.x - 28, this.y - 32);
+            //Segel 1
+            crc2.moveTo(this.x - 29, this.y - 60);
+            crc2.lineTo(this.x + 10, this.y - 60);
+            crc2.lineTo(this.x - 29, this.y - 140);
             crc2.closePath();
             crc2.fill();
-
-            crc2.strokeStyle = "transparent";
-            crc2.stroke();
         } // draw
 
         
@@ -58,13 +80,13 @@ namespace DrunkenSailor {
             let c: number = Math.floor(Math.random() * 3);
             switch (c) {
                 case 0:
-                    this.color = "#81871c";
+                    this.color = "#878B33";
                     break;
                 case 1:
-                    this.color = "#80648c";
+                    this.color = "#792F79";
                     break;
                 case 2:
-                    this.color = "#e5e042";
+                    this.color = "#8F2844";
             } // switch   
         } // setRandomColor
     } // class   

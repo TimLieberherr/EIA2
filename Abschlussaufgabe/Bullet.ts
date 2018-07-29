@@ -24,7 +24,7 @@ namespace DrunkenSailor {
 
         
         
-        // checkPosition Bullet - Zerstört Kugel außerhalb der Bullet.
+        // checkPosition Bullet - Zerstört Kugel außerhalb des Canvas.
         checkPosition(): void {
             if (this.x >= canvas.width) {
                 this.destroyBullet();
@@ -34,7 +34,6 @@ namespace DrunkenSailor {
                 if (this.x >= enemies[i].x) {
                     if (this.y <= enemies[i].y + 10 && this.y >= enemies[i].y - 10) {
                         
-                        //wenn der Gegener getroffen ist
                         let index: number = i;
                         enemies.splice(index, 1);
                        

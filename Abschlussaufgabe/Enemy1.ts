@@ -8,12 +8,12 @@
 
 
 namespace DrunkenSailor {
-    
-    // Triangle Klasse
-    export class Triangle extends Square {
+
+    // Enemy 1 Klasse
+    export class Enemy1 extends EnemyClass {
         color: string;
 
-        
+
         // constructor
         constructor() {
             super();
@@ -22,50 +22,63 @@ namespace DrunkenSailor {
             this.setRandomSpawnPoint();
         } // constructor
 
-        
-        
+
+
         // draw
         draw(): void {
-            crc2.fillStyle = this.color;
             crc2.beginPath();
-            crc2.moveTo(this.x, this.y);
-            crc2.lineTo(this.x + 28, this.y - 50);
-            crc2.lineTo(this.x + 56, this.y);
+            //Rumpf
+            crc2.moveTo(this.x + 60, this.y - 43);
+            crc2.lineTo(this.x + 30, this.y + 10);
+            crc2.lineTo(this.x - 80, this.y + 10);
+            crc2.lineTo(this.x - 120, this.y - 30);
+            //Spitze
+            crc2.lineTo(this.x - 145, this.y - 30);
+            crc2.lineTo(this.x - 145, this.y - 32);
+            //Höcker
+            crc2.lineTo(this.x - 10, this.y - 32);
+            crc2.lineTo(this.x + 10, this.y - 43);
+            //Mast 1
+            crc2.moveTo(this.x - 40, this.y - 32);
+            crc2.lineTo(this.x - 40, this.y - 140);
+            crc2.lineTo(this.x - 38, this.y - 140);
+            crc2.lineTo(this.x - 38, this.y - 32);
+            //Segel 1
+            crc2.moveTo(this.x - 39, this.y - 60);
+            crc2.lineTo(this.x + 10, this.y - 60);
+            crc2.lineTo(this.x - 39, this.y - 140);
             crc2.closePath();
             crc2.fill();
-
-            crc2.strokeStyle = "transparent";
-            crc2.stroke();
         } // draw
 
-        
-        
+
+
         // setStartPosition
         setStartPosition(): void {
             this.x = canvas.width + 50;
             this.y = 560;
         }// setStartPosition
 
-        
-        
+
+
         // setRandwomSpawnPoint
         setRandomSpawnPoint(): void {
-        // leer
+            // leer
         } // setRandwomSpawnPoint
 
-        
+
         // setRandwomColor
         setRandomColor(): void {
             let c: number = Math.floor(Math.random() * 3);
             switch (c) {
                 case 0:
-                    this.color = "#81871c";
+                    this.color = "#1D1B7D";
                     break;
                 case 1:
-                    this.color = "#80648c";
+                    this.color = "#706A29";
                     break;
                 case 2:
-                    this.color = "#e5e042";
+                    this.color = "#1F6F26";
             } // switch   
         } // setRandomColor
     } // class   

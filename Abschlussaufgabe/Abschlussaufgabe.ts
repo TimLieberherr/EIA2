@@ -14,7 +14,7 @@ namespace DrunkenSailor {
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
     export let superclass: SuperClass[] = [];
-    export let enemies: Square[] = [];
+    export let enemies: EnemyClass[] = [];
     let imgData: ImageData;
     export let bullet: Bullet;
 
@@ -44,8 +44,8 @@ namespace DrunkenSailor {
         // Aufruf der animate-Funktion
         animate();
 
-        // Aufruf der Ship-Funktion  HIER NOCH VARIABEL AUSTAUSCHEN
-        let triangle: Triangle = new Triangle();
+        // Aufruf der Enemy-Funktion
+        let triangle: Enemy1 = new Enemy1();
         enemies.push(triangle);
 
         // Aufruf der Other-Funktion 
@@ -53,7 +53,7 @@ namespace DrunkenSailor {
         enemies.push(other);
 
         // Aufruf der ownShip-Funktion  HIER NOCH VARIABEL AUSTAUSCHEN
-        let dot: Dot = new Dot();
+        let dot: Boat = new Boat();
         superclass.push(dot);
 
     } // init
@@ -62,11 +62,11 @@ namespace DrunkenSailor {
 
     export function createObjects(): void {
 
-        // Math Random für Ship- & Other-Funktion  HIER NOCH VARIABEL AUSTAUSCHEN
-        let c: number = Math.floor(Math.random() * 2);
+        // Enemy- & Other-Funktion 
+        let c: number = Math.floor(Math.random() * 3);
         switch (c) {
             case 0:
-                let triangle: Triangle = new Triangle();
+                let triangle: Enemy1 = new Enemy1();
                 enemies.push(triangle);
                 break;
             case 1:
@@ -83,7 +83,7 @@ namespace DrunkenSailor {
 
     // Animate-Funktion
     function animate(): void {
-        window.setTimeout(animate, 15);
+        window.setTimeout(animate, 20);
 
         crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         crc2.putImageData(imgData, 0, 0);

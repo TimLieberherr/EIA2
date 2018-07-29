@@ -9,22 +9,24 @@ body {
 	color: white;
 	background-color: #ffd478;
 	text-align: center;
-	font-size: 1em;
+	font-size: 1.2em;
 	
 }
 
 h1 {
+	font-family: 'Pirata One', cursive;
 	font-size: 3em;
 }
 
 p {
+	padding: 0px 0px 0px 0px;
 	font-family: 'Kirang Haerang', cursive;
-	font-size: 1em;
+	font-size: 1.2em;
 }
 
 #startScreen {
 	color: white;
-	margin-top: 20px;
+	margin-top: 10px;
 	padding: 10px 20px 10px 20px;
 	text-align: center;
 	display: block;
@@ -35,7 +37,7 @@ p {
 	font-family: 'Pirata One', cursive;
 	font-size: 2em;
 	border-radius: 10px;
-	background-color: #ffd478;
+	background-color: #d6b366;
 	border: none;
 	color: white;
 	cursor: pointer;

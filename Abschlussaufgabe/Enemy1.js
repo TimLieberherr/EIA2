@@ -6,8 +6,8 @@
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var DrunkenSailor;
 (function (DrunkenSailor) {
-    // Square Klasse
-    class OtherStuff extends DrunkenSailor.EnemyClass {
+    // Enemy 1 Klasse
+    class Enemy1 extends DrunkenSailor.EnemyClass {
         // constructor
         constructor() {
             super();
@@ -15,11 +15,11 @@ var DrunkenSailor;
             this.setStartPosition();
             this.setRandomSpawnPoint();
         } // constructor
-        // draw  
+        // draw
         draw() {
             DrunkenSailor.crc2.beginPath();
             //Rumpf
-            DrunkenSailor.crc2.moveTo(this.x + 30, this.y - 43);
+            DrunkenSailor.crc2.moveTo(this.x + 60, this.y - 43);
             DrunkenSailor.crc2.lineTo(this.x + 30, this.y + 10);
             DrunkenSailor.crc2.lineTo(this.x - 80, this.y + 10);
             DrunkenSailor.crc2.lineTo(this.x - 120, this.y - 30);
@@ -30,50 +30,41 @@ var DrunkenSailor;
             DrunkenSailor.crc2.lineTo(this.x - 10, this.y - 32);
             DrunkenSailor.crc2.lineTo(this.x + 10, this.y - 43);
             //Mast 1
-            DrunkenSailor.crc2.moveTo(this.x - 30, this.y - 32);
-            DrunkenSailor.crc2.lineTo(this.x - 30, this.y - 140);
-            DrunkenSailor.crc2.lineTo(this.x - 28, this.y - 140);
-            DrunkenSailor.crc2.lineTo(this.x - 28, this.y - 32);
+            DrunkenSailor.crc2.moveTo(this.x - 40, this.y - 32);
+            DrunkenSailor.crc2.lineTo(this.x - 40, this.y - 140);
+            DrunkenSailor.crc2.lineTo(this.x - 38, this.y - 140);
+            DrunkenSailor.crc2.lineTo(this.x - 38, this.y - 32);
             //Segel 1
-            DrunkenSailor.crc2.moveTo(this.x - 29, this.y - 60);
+            DrunkenSailor.crc2.moveTo(this.x - 39, this.y - 60);
             DrunkenSailor.crc2.lineTo(this.x + 10, this.y - 60);
-            DrunkenSailor.crc2.lineTo(this.x - 29, this.y - 140);
-            //Mast 1
-            DrunkenSailor.crc2.moveTo(this.x - 70, this.y - 32);
-            DrunkenSailor.crc2.lineTo(this.x - 30, this.y - 140);
-            DrunkenSailor.crc2.lineTo(this.x - 28, this.y - 140);
-            DrunkenSailor.crc2.lineTo(this.x - 28, this.y - 32);
-            //Segel 1
-            DrunkenSailor.crc2.moveTo(this.x - 29, this.y - 60);
-            DrunkenSailor.crc2.lineTo(this.x + 10, this.y - 60);
-            DrunkenSailor.crc2.lineTo(this.x - 29, this.y - 140);
+            DrunkenSailor.crc2.lineTo(this.x - 39, this.y - 140);
             DrunkenSailor.crc2.closePath();
             DrunkenSailor.crc2.fill();
         } // draw
-        // Set Start Position
+        // setStartPosition
         setStartPosition() {
-            this.x = DrunkenSailor.canvas.width - 20;
+            this.x = DrunkenSailor.canvas.width + 50;
             this.y = 560;
         } // setStartPosition
-        // set Random Spawn Point
+        // setRandwomSpawnPoint
         setRandomSpawnPoint() {
             // leer
-        } //setRandomSpawnPoint
-        // setRandomColor
+        } // setRandwomSpawnPoint
+        // setRandwomColor
         setRandomColor() {
             let c = Math.floor(Math.random() * 3);
             switch (c) {
                 case 0:
-                    this.color = "#878B33";
+                    this.color = "#1D1B7D";
                     break;
                 case 1:
-                    this.color = "#792F79";
+                    this.color = "#706A29";
                     break;
                 case 2:
-                    this.color = "#8F2844";
+                    this.color = "#1F6F26";
             } // switch   
         } // setRandomColor
     }
-    DrunkenSailor.OtherStuff = OtherStuff; // class   
-})(DrunkenSailor || (DrunkenSailor = {})); // namespace
-//# sourceMappingURL=Other.js.map
+    DrunkenSailor.Enemy1 = Enemy1; // class   
+})(DrunkenSailor || (DrunkenSailor = {})); // namespace 
+//# sourceMappingURL=Enemy1.js.map

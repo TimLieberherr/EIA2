@@ -4,10 +4,16 @@
     Datum: 31.07.18
     
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
-var DrunkenSailor;
-(function (DrunkenSailor) {
+
+
+namespace DrunkenSailor {
+    
     // Square Klasse
-    class Square extends DrunkenSailor.Dot {
+    export class EnemyClass extends Boat {
+        color: string;
+        
+        
+        
         // Constructor
         constructor() {
             super();
@@ -15,30 +21,45 @@ var DrunkenSailor;
             this.setStartPosition();
             this.setRandomSpawnPoint();
         } // Constructor
+
+        
+
         // Draw
-        draw() {
+        draw(): void {
             //
         } // Draw
+
+        
+        
         // Move
-        move() {
+        move(): void {
             this.x -= 3;
             this.y += 0;
+
             if (this.x < -50) {
-                this.x = DrunkenSailor.canvas.width + 50;
+                this.x = canvas.width + 50;
             }
         } // Move
+        
+        
         // setStartPosition
-        setStartPosition() {
-            this.x = DrunkenSailor.canvas.width + 0;
+        setStartPosition(): void {
+            this.x = canvas.width + 0;
             this.y = 510;
         } // setStartPosition
+
+        
+        
         // setRandomSpawnPoint
-        setRandomSpawnPoint() {
-            //
+        setRandomSpawnPoint(): void {
+           //
         } // setRandomSpawnPoint
+
+        
+        
         // setRandomColor
-        setRandomColor() {
-            let c = Math.floor(Math.random() * 3);
+        setRandomColor(): void {
+            let c: number = Math.floor(Math.random() * 3);
             switch (c) {
                 case 0:
                     this.color = "#f9b836";
@@ -50,7 +71,5 @@ var DrunkenSailor;
                     this.color = "#b7505e";
             } // switch   
         } // setRandomColor
-    }
-    DrunkenSailor.Square = Square; // class   
-})(DrunkenSailor || (DrunkenSailor = {})); // closing namespace
-//# sourceMappingURL=Square.js.map
+    } // class   
+} // closing namespace
